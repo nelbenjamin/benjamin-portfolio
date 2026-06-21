@@ -114,7 +114,7 @@ export default function Contact() {
                 <div style={{ position: 'relative' }}>
                   <User size={16} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
                   <input required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
-                    className="input-field" placeholder="John Doe" style={{ width: '100%', padding: '13px 14px 13px 42px', borderRadius: 12, fontSize: 14 }} />
+                    className="input-field" placeholder="Your name" style={{ width: '100%', padding: '13px 14px 13px 42px', borderRadius: 12, fontSize: 14 }} />
                 </div>
               </div>
               <div>
