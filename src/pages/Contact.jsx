@@ -122,7 +122,7 @@ export default function Contact() {
                 <div style={{ position: 'relative' }}>
                   <Mail size={16} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
                   <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
-                    className="input-field" placeholder="you@example.com" style={{ width: '100%', padding: '13px 14px 13px 42px', borderRadius: 12, fontSize: 14 }} />
+                    className="input-field" placeholder="Your email" style={{ width: '100%', padding: '13px 14px 13px 42px', borderRadius: 12, fontSize: 14 }} />
                 </div>
               </div>
               <div>
