@@ -4,7 +4,7 @@ import { ExternalLink, Image as ImageIcon, Code2, Database, ShieldCheck, BarChar
 const SCHOOL_PROJECT = {
   title: 'EduManage — School Management System',
   type: 'Full-Stack Web Application · Client/Educational Project',
-  description: 'A complete, role-based school management platform built for teachers, administrators and principals. Features real-time notifications, AI-powered grade analytics and feedback, custom CA & final mark calculators, and professional Excel/PDF/Word report generation — all wrapped in a polished black-and-blue interface.',
+  description: 'A complete, role-based school management platform built for teachers, administrators and principals. Features real-time notifications, AI-powered grade analytics and feedback, custom CA & final mark calculators, and professional Excel/PDF/Word report generation — all wrapped in a polished interface.',
   stack: ['React', 'Vite', 'Node.js', 'Express', 'MySQL', 'Socket.io', 'JWT Auth', 'Framer Motion', 'Recharts'],
   features: [
     { icon: ShieldCheck, text: 'Role-based access control for Teachers, Admins & Principals with JWT authentication and bcrypt password hashing' },
@@ -25,11 +25,11 @@ export default function Projects() {
       {/* Header */}
       <div style={{ marginBottom: 56, textAlign: 'center' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-          style={{ fontSize: 13, color: '#2979ff', fontWeight: 700, letterSpacing: '0.12em', marginBottom: 12 }}>
+          style={{ fontSize: 13, color: 'var(--blue)', fontWeight: 700, letterSpacing: '0.12em', marginBottom: 12 }}>
           MY WORK
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="font-display" style={{ fontSize: 'clamp(28px, 5vw, 46px)', fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em' }}>
+          className="font-display" style={{ fontSize: 'clamp(28px, 5vw, 46px)', fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em', color: '#ffffff' }}>
           Featured <span className="gradient-text">Projects</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
@@ -40,21 +40,22 @@ export default function Projects() {
 
       {/* Project Card */}
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-        style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 24, overflow: 'hidden', marginBottom: 40 }}>
+        className="card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 24, overflow: 'hidden', marginBottom: 40, boxShadow: '0 4px 20px rgba(15,27,45,0.05)' }}>
 
         {/* Screenshot gallery placeholder */}
         <div style={{ padding: 24, borderBottom: '1px solid var(--border)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12 }}>
             {SCHOOL_PROJECT.screenshots.map((label, i) => (
-              <div key={i} style={{
-                aspectRatio: '16/10', borderRadius: 12, border: '1px dashed var(--border-bright)',
-                background: 'var(--bg-secondary)', display: 'flex', flexDirection: 'column',
-                alignItems: 'center', justifyContent: 'center', gap: 8, padding: 16, textAlign: 'center'
-              }}>
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
+                style={{
+                  aspectRatio: '16/10', borderRadius: 12, border: '1.5px dashed var(--border-bright)',
+                  background: 'var(--bg-secondary)', display: 'flex', flexDirection: 'column',
+                  alignItems: 'center', justifyContent: 'center', gap: 8, padding: 16, textAlign: 'center'
+                }}>
                 <ImageIcon size={28} color="var(--text-muted)" />
                 <span style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 600 }}>{label}</span>
-                <span style={{ fontSize: 10, color: 'var(--text-muted)', opacity: 0.6 }}>Screenshot coming soon</span>
-              </div>
+                <span style={{ fontSize: 10, color: 'var(--text-muted)', opacity: 0.7 }}>Screenshot coming soon</span>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -67,7 +68,7 @@ export default function Projects() {
               <h2 className="font-display" style={{ fontSize: 26, fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>{SCHOOL_PROJECT.title}</h2>
             </div>
             <div style={{ display: 'flex', gap: 10 }}>
-              <a href="https://github.com/nelbenjamin" target="_blank" rel="noopener noreferrer" className="btn-outline"
+              <a href="https://github.com/nelbenjamin/school-management-system" target="_blank" rel="noopener noreferrer" className="btn-outline"
                 style={{ padding: '10px 18px', borderRadius: 10, fontSize: 13, fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6 }}>
                 <ExternalLink size={15} /> Code
               </a>
@@ -79,7 +80,7 @@ export default function Projects() {
           {/* Tech stack */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 28 }}>
             {SCHOOL_PROJECT.stack.map(tech => (
-              <span key={tech} className="skill-tag" style={{ padding: '6px 14px', borderRadius: 8, fontSize: 12.5, fontWeight: 600, color: '#2979ff' }}>
+              <span key={tech} className="skill-tag" style={{ padding: '6px 14px', borderRadius: 8, fontSize: 12.5, fontWeight: 600, color: 'var(--blue)' }}>
                 {tech}
               </span>
             ))}
@@ -90,7 +91,7 @@ export default function Projects() {
             {SCHOOL_PROJECT.features.map((f, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
                 style={{ display: 'flex', gap: 12, alignItems: 'flex-start', background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: 12, padding: 16 }}>
-                <div style={{ width: 32, height: 32, borderRadius: 9, background: 'rgba(41,121,255,0.12)', border: '1px solid rgba(41,121,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <div style={{ width: 32, height: 32, borderRadius: 9, background: 'var(--blue-subtle)', border: '1px solid rgba(37,99,235,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <f.icon size={15} color="var(--blue)" />
                 </div>
                 <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>{f.text}</p>
@@ -102,11 +103,11 @@ export default function Projects() {
 
       {/* More coming soon */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-        style={{ textAlign: 'center', padding: '48px 24px', border: '1px dashed var(--border-bright)', borderRadius: 20, background: 'var(--bg-card)' }}>
-        <div style={{ width: 56, height: 56, borderRadius: 16, background: 'rgba(41,121,255,0.1)', border: '1px solid rgba(41,121,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+        style={{ textAlign: 'center', padding: '48px 24px', border: '1.5px dashed var(--border-bright)', borderRadius: 20, background: 'var(--bg-card)' }}>
+        <div style={{ width: 56, height: 56, borderRadius: 16, background: 'var(--blue-subtle)', border: '1px solid rgba(37,99,235,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
           <Code2 size={26} color="var(--blue)" />
         </div>
-        <h3 className="font-display" style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>More Projects Coming Soon</h3>
+        <h3 className="font-display" style={{ fontSize: 20, fontWeight: 700, marginBottom: 8, color: 'var(--text-primary)' }}>More Projects Coming Soon</h3>
         <p style={{ fontSize: 14, color: 'var(--text-secondary)', maxWidth: 420, margin: '0 auto', lineHeight: 1.7 }}>
           Including the MonaGraph clinical desktop application and the web-based crime reporting platform — check back soon for updates.
         </p>

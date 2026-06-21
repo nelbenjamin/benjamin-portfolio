@@ -2,10 +2,13 @@ import { motion } from 'framer-motion';
 import { GraduationCap, Award, Briefcase, MapPin, Calendar, CheckCircle2 } from 'lucide-react';
 
 const SKILLS = {
-  Languages: ['C#', 'JavaScript', 'PHP', 'HTML', 'CSS', 'Python', 'SQL'],
-  'Frameworks & Tools': ['React', 'ASP.NET Concepts', 'Windows Forms', 'REST APIs', 'Git & GitHub'],
-  Databases: ['MySQL', 'SQL Server', 'Schema Design', 'Normalization', 'Query Optimization'],
-  'Other Tools': ['pandas', 'matplotlib', 'reportlab', 'Fernet Encryption', 'MS Office', 'Linux'],
+  'Programming Languages': ['C#', 'JavaScript', 'PHP', 'HTML', 'CSS', 'Python', 'SQL', 'Java'],
+  'Frameworks & Tools': ['React', 'Node.js', 'ASP.NET Concepts', 'Windows Forms', 'REST APIs', 'Git & GitHub'],
+  'Database Management': ['MySQL', 'SQL Server', 'Schema Design', 'Normalization', 'Query Optimization', 'Data Integrity'],
+  'Cybersecurity': ['Fernet Encryption', 'SHA-256 Hashing', 'JWT Authentication', 'Role-Based Access Control', 'Secure System Design'],
+  'Systems & Networking': ['Windows & Linux', 'Networking Fundamentals (TCP/IP, DNS)', 'System Administration Basics'],
+  'Data & Analytics': ['pandas', 'matplotlib', 'reportlab', 'Data Processing', 'Automated Reporting'],
+  'Other Tools': ['Microsoft Office Suite', 'VS Code', 'Technical Documentation', 'Project Management'],
 };
 
 const EDUCATION = [
@@ -40,21 +43,21 @@ export default function About() {
 
       {/* Header section with photo */}
       <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: 48, alignItems: 'center', marginBottom: 80 }} className="about-header">
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           style={{ position: 'relative' }}>
-          <div style={{ position: 'absolute', inset: -16, background: 'linear-gradient(135deg, #1d6feb30, #00c8ff15)', borderRadius: '50%', filter: 'blur(30px)' }} />
-          <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', border: '2px solid var(--border-bright)', aspectRatio: '1/1' }}>
+          <div style={{ position: 'absolute', inset: -16, background: 'linear-gradient(135deg, rgba(37,99,235,0.18), rgba(14,165,233,0.1))', borderRadius: '50%', filter: 'blur(30px)' }} />
+          <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', border: '1px solid var(--border-bright)', aspectRatio: '1/1', boxShadow: '0 24px 50px rgba(15,27,45,0.1)' }}>
             <img src="/profile.jpg" alt="Benjamin Hairungu" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </motion.div>
 
         <div>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            style={{ fontSize: 13, color: '#2979ff', fontWeight: 700, letterSpacing: '0.12em', marginBottom: 12 }}>
+            style={{ fontSize: 13, color: 'var(--blue)', fontWeight: 700, letterSpacing: '0.12em', marginBottom: 12 }}>
             ABOUT ME
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="font-display" style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, marginBottom: 18, letterSpacing: '-0.02em' }}>
+            className="font-display" style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, marginBottom: 18, letterSpacing: '-0.02em', color: '#ffffff' }}>
             Benjamin Intja Hairungu
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
@@ -81,14 +84,18 @@ export default function About() {
       {/* Skills */}
       <div style={{ marginBottom: 80 }}>
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="font-display" style={{ fontSize: 28, fontWeight: 800, marginBottom: 32, letterSpacing: '-0.02em' }}>
+          className="font-display" style={{ fontSize: 28, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.02em', color: '#ffffff' }}>
           Technical <span className="gradient-text">Skills</span>
         </motion.h2>
+        <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
+          style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 32, maxWidth: 600 }}>
+          Software development is my core strength, backed by a broad foundation across the computer science discipline.
+        </motion.p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24 }}>
           {Object.entries(SKILLS).map(([category, items], i) => (
-            <motion.div key={category} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 18, padding: 24 }}>
+            <motion.div key={category} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 18, padding: 24, boxShadow: '0 2px 12px rgba(15,27,45,0.04)' }}>
               <h3 style={{ fontSize: 14, fontWeight: 700, color: 'var(--blue)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{category}</h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {items.map(skill => (
@@ -105,15 +112,15 @@ export default function About() {
       {/* Education */}
       <div style={{ marginBottom: 80 }}>
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="font-display" style={{ fontSize: 28, fontWeight: 800, marginBottom: 32, letterSpacing: '-0.02em' }}>
+          className="font-display" style={{ fontSize: 28, fontWeight: 800, marginBottom: 32, letterSpacing: '-0.02em', color: '#ffffff' }}>
           <GraduationCap size={26} color="var(--blue)" style={{ display: 'inline', marginRight: 10, verticalAlign: -4 }} />
           Education
         </motion.h2>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           {EDUCATION.map((edu, i) => (
-            <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
-              style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 18, padding: 28, borderLeft: '3px solid var(--blue)' }}>
+            <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className="card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 18, padding: 28, borderLeft: '3px solid var(--blue)', boxShadow: '0 2px 12px rgba(15,27,45,0.04)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8, marginBottom: 8 }}>
                 <h3 style={{ fontSize: 17, fontWeight: 700, color: 'var(--text-primary)' }}>{edu.degree}</h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, color: 'var(--blue)', fontWeight: 600, whiteSpace: 'nowrap' }}>
@@ -123,7 +130,7 @@ export default function About() {
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 10 }}>
                 <span style={{ fontSize: 14, color: 'var(--text-secondary)', fontWeight: 600 }}>{edu.school}</span>
                 <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>{edu.location}</span>
-                {edu.note && <span style={{ fontSize: 12, color: '#00c896', fontWeight: 600 }}>{edu.note}</span>}
+                {edu.note && <span style={{ fontSize: 12, color: '#10b981', fontWeight: 600 }}>{edu.note}</span>}
               </div>
               <p style={{ fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.7 }}>
                 <strong style={{ color: 'var(--text-secondary)' }}>Key coursework:</strong> {edu.courses}
@@ -136,17 +143,17 @@ export default function About() {
       {/* Achievements */}
       <div>
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="font-display" style={{ fontSize: 28, fontWeight: 800, marginBottom: 32, letterSpacing: '-0.02em' }}>
+          className="font-display" style={{ fontSize: 28, fontWeight: 800, marginBottom: 32, letterSpacing: '-0.02em', color: '#ffffff' }}>
           <Award size={26} color="var(--blue)" style={{ display: 'inline', marginRight: 10, verticalAlign: -4 }} />
           Achievements
         </motion.h2>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {ACHIEVEMENTS.map((a, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              style={{ display: 'flex', alignItems: 'flex-start', gap: 14, background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 14, padding: '18px 22px' }}>
-              <div style={{ width: 32, height: 32, borderRadius: 10, background: 'rgba(0,200,150,0.12)', border: '1px solid rgba(0,200,150,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <CheckCircle2 size={16} color="#00c896" />
+            <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="card-hover" style={{ display: 'flex', alignItems: 'flex-start', gap: 14, background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 14, padding: '18px 22px', boxShadow: '0 2px 12px rgba(15,27,45,0.04)' }}>
+              <div style={{ width: 32, height: 32, borderRadius: 10, background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <CheckCircle2 size={16} color="#10b981" />
               </div>
               <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, paddingTop: 4 }}>{a}</p>
             </motion.div>
